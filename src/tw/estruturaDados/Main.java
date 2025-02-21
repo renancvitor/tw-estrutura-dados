@@ -1,6 +1,7 @@
 package tw.estruturaDados;
 
 import estruturaDadosModelos.Pessoa;
+import estruturaDadosVetores.Vetor;
 
 import java.util.Scanner;
 
@@ -53,10 +54,8 @@ public class Main {
 
     private static void fazerVetor() {
 
-        Pessoa[] vetorPessoas = new Pessoa[3];
-        vetorPessoas[0] = new Pessoa(1, "TreinaWeb no Vetor");
-        System.out.println(vetorPessoas[0].getNome());
-        int[] vetorInteiro = new int[3];
-        System.out.println(vetorInteiro[0]);
+        Vetor vetorPessoas = new Vetor(3);
+        vetorPessoas.inserirEm(0, new Pessoa(1, "TreinaWeb"));
+        System.out.println(vetorPessoas.recuperar(0).getNome());
     }
 }
