@@ -54,8 +54,12 @@ public class Main {
 
     private static void fazerVetor() {
 
-        Vetor vetorPessoas = new Vetor(3);
+        Vetor<Pessoa> vetorPessoas = new Vetor<Pessoa>(3);
         vetorPessoas.inserirEm(0, new Pessoa(1, "TreinaWeb"));
         System.out.println(vetorPessoas.recuperar(0).getNome());
+
+        Vetor<Integer> vetorInteiros = new Vetor<Integer>(2);
+        vetorInteiros.inserirEm(0, 1);
+        System.out.println(vetorInteiros.recuperar(0));
     }
 }
