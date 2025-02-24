@@ -38,6 +38,7 @@ public class Vetor<T> {
             this.elementos = new Object[novoTamanho];
             System.arraycopy(arrayInicio, 0, this.elementos, 0, arrayInicio.length);
             System.arraycopy(arrayFInal, 0, this.elementos, arrayInicio.length, arrayFInal.length);
+            this.posicao++;
         } else {
             this.elementos[posicao] = elemento;
         }
@@ -47,13 +48,53 @@ public class Vetor<T> {
     @SuppressWarnings("unchecked")
     public T recuperar(int posicao) {
         if (posicao >= tamanho()) {
-            throw new IllegalArgumentException(String.format("Posição %d inválida.", posicao));
+            throw new IllegalArgumentException(String.format("Posição [%d] inválida.", posicao));
         }
         return (T)this.elementos[posicao];
     }
 
     public int tamanho() {
         return this.elementos.length;
+    }
+
+    public boolean contem(T elemento) {
+        for (int i = 0; i < tamanho(); i++) {
+            T elem = recuperar(i);
+            if (elem != null && elem.equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int indice(T elemento) {
+        for (int i = 0; i < tamanho(); i++) {
+            T elem = recuperar(i);
+            if (elem != null && elem.equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void remover(int posicao) {
+        if (posicao >= tamanho()) {
+            throw new IllegalArgumentException(String.format("Posição [%d] inválida", posicao));
+        }
+        Object[] arrayFInal = Arrays.copyOfRange(this.elementos, posicao + 1, tamanho());
+        Object[] arrayInicio = Arrays.copyOfRange(this.elementos, 0, posicao);
+        this.elementos = new Object[tamanho() - 1];
+        this.posicao--;
+        System.arraycopy(arrayInicio, 0, this.elementos, 0, arrayInicio.length);
+        System.arraycopy(arrayFInal, 0, this.elementos, arrayInicio.length, arrayFInal.length);
+    }
+
+    public void remover(T elemento) {
+        int posicao = indice(elemento);
+        if (posicao >= tamanho() || posicao == -1) {
+            throw new IllegalArgumentException("Elemento inválido - " + elemento.toString());
+        }
+        remover(posicao);
     }
 
     @Override
