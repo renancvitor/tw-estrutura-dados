@@ -1,5 +1,6 @@
 package tw.estruturaDados;
 
+import ListasLigadas.ListaLigada;
 import estruturaDadosModelos.Pessoa;
 import estruturaDadosVetores.Vetor;
 
@@ -14,6 +15,7 @@ public class Main {
         System.out.println("Digite a opção deseja: ");
         System.out.println("1. Gerenciamento de memória");
         System.out.println("2. Vetores");
+        System.out.println("3. Lista ligada");
 
         int opcao = scanner.nextInt();
 
@@ -23,6 +25,9 @@ public class Main {
                 break;
             case 2:
                 fazerVetor();
+                break;
+            case 3:
+                fazerListaLigada();
                 break;
         }
 
@@ -80,4 +85,12 @@ public class Main {
         vetorPessoas.remover(p);
         System.out.println(vetorPessoas.toString());
     }
+
+    private static void fazerListaLigada() {
+        ListaLigada<Pessoa> listaPessoa = new ListaLigada<Pessoa>();
+        listaPessoa.inserir(new Pessoa(1, "TreinaWeb 01"));
+        listaPessoa.inserir(new Pessoa(2, "TreinaWeb 02"));
+        System.out.println(listaPessoa.toString());
+    }
+
 }

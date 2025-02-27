@@ -31,4 +31,24 @@ public class ListaLigada<T> {
     public int tamanho() {
         return this.tamanho;
     }
+
+    @Override
+    public String toString() {
+        if (estaVazia()) {
+            return "ListaLigada{}";
+        } else {
+            No<T> noInicial = this.primeiroNo;
+            StringBuilder sb = new StringBuilder();
+            sb.append("Lista {");
+            sb.append(noInicial.getElemento() != null ? noInicial.getElemento().toString() : "<NULO>");
+            sb.append(",");
+            while (noInicial.getProximo() != null) {
+                sb.append(noInicial.getProximo().getElemento() != null ? noInicial.getProximo().getElemento().toString() : "<NULO>");
+                sb.append(",");
+                noInicial = noInicial.getProximo();
+            }
+            sb.append("}");
+            return sb.toString();
+        }
+    }
 }
