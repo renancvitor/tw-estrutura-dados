@@ -104,6 +104,16 @@ public class Main {
         System.out.println(listaPessoa.contem(pessoaErrada));
         System.out.println(listaPessoa.indice(p));
         System.out.println(listaPessoa.indice(pessoaErrada));
+
+        listaPessoa.remover(p);
+        System.out.println(listaPessoa.toString());
+        listaPessoa.remover(0);
+        System.out.println(listaPessoa.toString());
+
+        System.out.println("Lista de pessoas:");
+        for (int i = 0; i < listaPessoa.tamanho(); i++) {
+            System.out.println(listaPessoa.recuperar(i).toString());
+        }
     }
 
 }

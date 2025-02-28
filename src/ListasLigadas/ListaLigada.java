@@ -52,6 +52,36 @@ public class ListaLigada<T> {
         return -1;
     }
 
+    public void remover(int posicao) {
+        if (posicao == tamanho()) {
+            throw new IllegalArgumentException(String.format("Posição inválida [%d]", posicao));
+        }
+        if (posicao == 0) {
+            No<T> proximoNo = this.primeiroNo.getProximo();
+            this.primeiroNo.setProximo(null);
+            this.primeiroNo = proximoNo;
+        } else if (posicao == tamanho() - 1) {
+            No<T> penultimoNo = recuperarNo(tamanho() - 2);
+            penultimoNo.setProximo(null);
+            this.ultimoNo = penultimoNo;
+        } else {
+            No<T> noAnterior = recuperarNo(posicao - 1);
+            No<T> proximoNo = recuperarNo(posicao + 1);
+            No<T> noAtual = recuperarNo(posicao);
+            noAnterior.setProximo(proximoNo);
+            noAtual.setProximo(null);
+        }
+        this.tamanho--;
+    }
+
+    public void remover(T elemento) {
+        int indice = indice(elemento);
+        if (indice == - 1) {
+            throw new IllegalArgumentException("Elemento inválido - " + elemento.toString());
+        }
+        remover(indice);
+    }
+
     public void inserirEM(int posicao, T elemento) {
         if (posicao >= tamanho()) {
             throw new IllegalArgumentException(String.format("Posição inválida [%d]", posicao));
