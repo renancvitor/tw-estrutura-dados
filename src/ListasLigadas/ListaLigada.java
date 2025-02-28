@@ -54,6 +54,14 @@ public class ListaLigada<T> {
         this.tamanho++;
     }
 
+    public void inserirPrimeiro(T elemento) {
+        inserirEM(0, elemento);
+    }
+
+    public void inserirUltimo(T elemento) {
+        inserirEM(tamanho - 1, elemento);
+    }
+
     public T recuperar(int posicao) {
         No<T> no = recuperarNo(posicao);
         if (no != null) {

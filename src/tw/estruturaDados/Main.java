@@ -90,6 +90,12 @@ public class Main {
         ListaLigada<Pessoa> listaPessoa = new ListaLigada<Pessoa>();
         listaPessoa.inserir(new Pessoa(1, "TreinaWeb 01"));
         listaPessoa.inserir(new Pessoa(2, "TreinaWeb 02"));
+        listaPessoa.inserir(new Pessoa(3, "TreinaWeb 03"));
+        listaPessoa.inserir(new Pessoa(4, "TreinaWeb 04"));
+
+        listaPessoa.inserirEM(1, new Pessoa(5, "TreinaWeb 05"));
+        listaPessoa.inserirPrimeiro(new Pessoa(6, "TreinaWeb 06"));
+        listaPessoa.inserirUltimo(new Pessoa(7, "TreinaWeb 07"));
         System.out.println(listaPessoa.toString());
     }
 
