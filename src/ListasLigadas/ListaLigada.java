@@ -32,6 +32,26 @@ public class ListaLigada<T> {
         return this.tamanho;
     }
 
+    public boolean contem(T elemento) {
+        for (int i = 0; i < tamanho(); i++) {
+            No<T> noAtual = recuperarNo(i);
+            if (noAtual.getElemento() != null && noAtual.getElemento().equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int indice(T elemento) {
+        for (int i = 0; i < tamanho(); i++) {
+            No<T> noAtual = recuperarNo(i);
+            if (noAtual.getElemento() != null && noAtual.getElemento().equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void inserirEM(int posicao, T elemento) {
         if (posicao >= tamanho()) {
             throw new IllegalArgumentException(String.format("Posição inválida [%d]", posicao));

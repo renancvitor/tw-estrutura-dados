@@ -97,6 +97,13 @@ public class Main {
         listaPessoa.inserirPrimeiro(new Pessoa(6, "TreinaWeb 06"));
         listaPessoa.inserirUltimo(new Pessoa(7, "TreinaWeb 07"));
         System.out.println(listaPessoa.toString());
+
+        Pessoa p = listaPessoa.recuperar(1);
+        Pessoa pessoaErrada = new Pessoa(100, "TreinaWeb 100");
+        System.out.println(listaPessoa.contem(p));
+        System.out.println(listaPessoa.contem(pessoaErrada));
+        System.out.println(listaPessoa.indice(p));
+        System.out.println(listaPessoa.indice(pessoaErrada));
     }
 
 }
