@@ -1,5 +1,6 @@
 package tw.estruturaDados;
 
+import ListasLigadas.ListaDuplamenteLigada;
 import ListasLigadas.ListaLigada;
 import estruturaDadosModelos.Pessoa;
 import estruturaDadosVetores.Vetor;
@@ -16,6 +17,7 @@ public class Main {
         System.out.println("1. Gerenciamento de memória");
         System.out.println("2. Vetores");
         System.out.println("3. Lista ligada");
+        System.out.println("4. Lista duplamente ligada");
 
         int opcao = scanner.nextInt();
 
@@ -28,6 +30,9 @@ public class Main {
                 break;
             case 3:
                 fazerListaLigada();
+                break;
+            case 4:
+                fazerlistaDuplamenteLigada();
                 break;
         }
 
@@ -43,7 +48,7 @@ public class Main {
         System.out.println("______________________");
         System.out.println(a);
         System.out.println(b);
-        System.out.println(a == b);
+        System.out.println(false);
         System.out.println("______________________");
 
         Pessoa p1 = new Pessoa(1, "TreinaWeb");
@@ -88,6 +93,36 @@ public class Main {
 
     private static void fazerListaLigada() {
         ListaLigada<Pessoa> listaPessoa = new ListaLigada<Pessoa>();
+        listaPessoa.inserir(new Pessoa(1, "TreinaWeb 01"));
+        listaPessoa.inserir(new Pessoa(2, "TreinaWeb 02"));
+        listaPessoa.inserir(new Pessoa(3, "TreinaWeb 03"));
+        listaPessoa.inserir(new Pessoa(4, "TreinaWeb 04"));
+
+        listaPessoa.inserirEM(1, new Pessoa(5, "TreinaWeb 05"));
+        listaPessoa.inserirPrimeiro(new Pessoa(6, "TreinaWeb 06"));
+        listaPessoa.inserirUltimo(new Pessoa(7, "TreinaWeb 07"));
+        System.out.println(listaPessoa.toString());
+
+        Pessoa p = listaPessoa.recuperar(1);
+        Pessoa pessoaErrada = new Pessoa(100, "TreinaWeb 100");
+        System.out.println(listaPessoa.contem(p));
+        System.out.println(listaPessoa.contem(pessoaErrada));
+        System.out.println(listaPessoa.indice(p));
+        System.out.println(listaPessoa.indice(pessoaErrada));
+
+        listaPessoa.remover(p);
+        System.out.println(listaPessoa.toString());
+        listaPessoa.remover(0);
+        System.out.println(listaPessoa.toString());
+
+        System.out.println("Lista de pessoas:");
+        for (int i = 0; i < listaPessoa.tamanho(); i++) {
+            System.out.println(listaPessoa.recuperar(i).toString());
+        }
+    }
+
+    private static void fazerlistaDuplamenteLigada() {
+        ListaDuplamenteLigada<Pessoa> listaPessoa = new ListaDuplamenteLigada<Pessoa>();
         listaPessoa.inserir(new Pessoa(1, "TreinaWeb 01"));
         listaPessoa.inserir(new Pessoa(2, "TreinaWeb 02"));
         listaPessoa.inserir(new Pessoa(3, "TreinaWeb 03"));
