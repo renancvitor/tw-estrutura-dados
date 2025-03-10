@@ -2,6 +2,7 @@ package tw.estruturaDados;
 
 import ListasLigadas.ListaDuplamenteLigada;
 import ListasLigadas.ListaLigada;
+import estruturaDadosFilas.Fila;
 import estruturaDadosModelos.Pessoa;
 import estruturaDadosPilhas.Pilha;
 import estruturaDadosVetores.Vetor;
@@ -20,6 +21,7 @@ public class Main {
         System.out.println("3. Lista ligada");
         System.out.println("4. Lista duplamente ligada");
         System.out.println("5. Pilha");
+        System.out.println("6. Fila");
 
         int opcao = scanner.nextInt();
 
@@ -38,6 +40,9 @@ public class Main {
                 break;
             case 5:
                 fazerPilha();
+                break;
+            case 6:
+                fazerFila();
                 break;
         }
 
@@ -163,6 +168,17 @@ public class Main {
         pilhaPessoas.empilhar(new Pessoa(2, "TreinaWeb 02"));
         pilhaPessoas.empilhar(new Pessoa(3, "TreinaWeb 03"));
         Pessoa p1 = pilhaPessoas.desempilhar();
+        System.out.println(p1.toString());
+    }
+
+    private static void fazerFila() {
+        Fila<Pessoa> filaPessoa = new Fila<Pessoa>();
+        System.out.println(filaPessoa.estaVazia());
+        filaPessoa.enfileirar(new Pessoa(1, "TreinaWeb 01"));
+        filaPessoa.enfileirar(new Pessoa(2, "TreinaWeb 02"));
+        filaPessoa.enfileirar(new Pessoa(3, "TreinaWeb 03"));
+        System.out.println(filaPessoa.toString());
+        Pessoa p1 = filaPessoa.desenfileirar();
         System.out.println(p1.toString());
     }
 
