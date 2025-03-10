@@ -3,6 +3,7 @@ package tw.estruturaDados;
 import ListasLigadas.ListaDuplamenteLigada;
 import ListasLigadas.ListaLigada;
 import estruturaDadosModelos.Pessoa;
+import estruturaDadosPilhas.Pilha;
 import estruturaDadosVetores.Vetor;
 
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class Main {
         System.out.println("2. Vetores");
         System.out.println("3. Lista ligada");
         System.out.println("4. Lista duplamente ligada");
+        System.out.println("5. Pilha");
 
         int opcao = scanner.nextInt();
 
@@ -33,6 +35,9 @@ public class Main {
                 break;
             case 4:
                 fazerlistaDuplamenteLigada();
+                break;
+            case 5:
+                fazerPilha();
                 break;
         }
 
@@ -149,6 +154,16 @@ public class Main {
         for (int i = 0; i < listaPessoa.tamanho(); i++) {
             System.out.println(listaPessoa.recuperar(i).toString());
         }
+    }
+
+    private static void fazerPilha() {
+        Pilha<Pessoa> pilhaPessoas = new Pilha<Pessoa>();
+        System.out.println(pilhaPessoas.estaVazia());
+        pilhaPessoas.empilhar(new Pessoa(1, "TreinaWeb 01"));
+        pilhaPessoas.empilhar(new Pessoa(2, "TreinaWeb 02"));
+        pilhaPessoas.empilhar(new Pessoa(3, "TreinaWeb 03"));
+        Pessoa p1 = pilhaPessoas.desempilhar();
+        System.out.println(p1.toString());
     }
 
 }
