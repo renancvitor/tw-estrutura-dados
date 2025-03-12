@@ -5,6 +5,7 @@ import ListasLigadas.ListaLigada;
 import estruturaDadosFilas.Fila;
 import estruturaDadosModelos.Pessoa;
 import estruturaDadosPilhas.Pilha;
+import estruturaDadosSets.Set;
 import estruturaDadosVetores.Vetor;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class Main {
         System.out.println("4. Lista duplamente ligada");
         System.out.println("5. Pilha");
         System.out.println("6. Fila");
+        System.out.println("7. Set");
 
         int opcao = scanner.nextInt();
 
@@ -43,6 +45,9 @@ public class Main {
                 break;
             case 6:
                 fazerFila();
+                break;
+            case 7:
+                fazerSet();
                 break;
         }
 
@@ -180,6 +185,19 @@ public class Main {
         System.out.println(filaPessoa.toString());
         Pessoa p1 = filaPessoa.desenfileirar();
         System.out.println(p1.toString());
+    }
+
+    private static void fazerSet() {
+        Set<Pessoa> setPessoas = new Set<Pessoa>();
+        System.out.println(setPessoas.estaVazia());
+        System.out.println(setPessoas.inserir(new Pessoa(1, "TreinaWeb 01")));
+        System.out.println(setPessoas.toString());
+        System.out.println(setPessoas.inserir(new Pessoa(1, "TreinaWeb 01")));
+        System.out.println(setPessoas.toString());
+        System.out.println(setPessoas.inserir(new Pessoa(2, "TreinaWeb 01")));
+        System.out.println(setPessoas.toString());
+        System.out.println(setPessoas.inserirEm(1, new Pessoa(2, "TreinaWeb 01")));
+        System.out.println(setPessoas.toString());
     }
 
 }

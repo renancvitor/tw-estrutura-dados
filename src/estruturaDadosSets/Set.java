@@ -10,12 +10,20 @@ public class Set<T> {
         this.elementos = new ListaLigada<T>();
     }
 
-    public void inserir(T elemento) {
-        this.elementos.inserir(elemento);
+    public boolean inserir(T elemento) {
+        if (elemento != null && !this.contem(elemento)) {
+            this.elementos.inserir(elemento);
+            return true;
+        }
+        return false;
     }
 
-    public void inserirEm(int posicao, T elemento) {
-        this.elementos.inserirEM(posicao, elemento);
+    public boolean inserirEm(int posicao, T elemento) {
+        if (elemento != null && !this.contem(elemento)) {
+            this.elementos.inserirEM(posicao, elemento);
+            return true;
+        }
+        return false;
     }
 
     public T recuperar(int posicao) {
@@ -31,7 +39,7 @@ public class Set<T> {
     }
 
     public boolean contem(T elemento) {
-        return this.elementos.contem(elemento)
+        return this.elementos.contem(elemento);
     }
 
     public int indice(T elemento) {
@@ -45,5 +53,11 @@ public class Set<T> {
     public void remover(T elemento) {
         this.elementos.remover(elemento);
     }
-    
+
+    @Override
+    public String toString() {
+        return "Set {" +
+                "elementos=" + elementos +
+                '}';
+    }
 }
