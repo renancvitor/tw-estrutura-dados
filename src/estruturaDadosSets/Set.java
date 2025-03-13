@@ -11,7 +11,7 @@ public class Set<T> {
     }
 
     public boolean inserir(T elemento) {
-        if (elemento != null && !this.contem(elemento)) {
+        if (elemento != null && !this.contemOtimizado(elemento)) {
             this.elementos.inserir(elemento);
             return true;
         }
@@ -19,7 +19,7 @@ public class Set<T> {
     }
 
     public boolean inserirEm(int posicao, T elemento) {
-        if (elemento != null && !this.contem(elemento)) {
+        if (elemento != null && !this.contemOtimizado(elemento)) {
             this.elementos.inserirEM(posicao, elemento);
             return true;
         }
@@ -52,6 +52,16 @@ public class Set<T> {
 
     public void remover(T elemento) {
         this.elementos.remover(elemento);
+    }
+
+    private boolean contemOtimizado(T elemento) {
+        for (int i = 0; i < this.elementos.tamanho(); i++) {
+            T el = this.elementos.recuperar(1);
+            if (el.hashCode() == elemento.hashCode()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
