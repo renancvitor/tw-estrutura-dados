@@ -13,4 +13,18 @@ public class TabelaEspalhamento<T> {
             this.elementos.inserir(new ListaLigada<T>());
         }
     }
+
+    public boolean inserir(T elemento) {
+        int numeroEspalhamento = this.gerarNumeroEspalhamento(elemento);
+        ListaLigada<T> categoria = this.elementos.recuperar(numeroEspalhamento);
+        if (categoria.contem(elemento)) {
+            return false;
+        }
+        categoria.inserir(elemento);
+        return true;
+    }
+
+    private int gerarNumeroEspalhamento(T elemento) {
+        return elemento.hashCode() % 16;
+    }
 }
