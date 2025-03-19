@@ -196,7 +196,7 @@ public class Main {
         System.out.println(setPessoas.toString());
         System.out.println(setPessoas.inserir(new Pessoa(2, "TreinaWeb 01")));
         System.out.println(setPessoas.toString());
-        System.out.println(setPessoas.inserirEm(1, new Pessoa(2, "TreinaWeb 01")));
+        System.out.println(setPessoas.inserir(1, new Pessoa(2, "TreinaWeb 01")));
         System.out.println(setPessoas.toString());
     }
 
