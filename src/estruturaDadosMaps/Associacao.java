@@ -1,6 +1,7 @@
 package estruturaDadosMaps;
 
 public class Associacao<K, V> {
+
     private K chave;
     private V valor;
 
