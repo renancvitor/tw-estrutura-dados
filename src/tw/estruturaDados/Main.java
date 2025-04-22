@@ -3,6 +3,7 @@ package tw.estruturaDados;
 import ListasLigadas.ListaDuplamenteLigada;
 import ListasLigadas.ListaLigada;
 import estruturaDadosFilas.Fila;
+import estruturaDadosMaps.Mapa;
 import estruturaDadosModelos.Pessoa;
 import estruturaDadosPilhas.Pilha;
 import estruturaDadosSets.Set;
@@ -25,6 +26,7 @@ public class Main {
         System.out.println("5. Pilha");
         System.out.println("6. Fila");
         System.out.println("7. Set");
+        System.out.println("8. Mapa");
 
         int opcao = scanner.nextInt();
 
@@ -49,6 +51,9 @@ public class Main {
                 break;
             case 7:
                 fazerSet();
+                break;
+            case 8:
+                fazerMapa();
                 break;
         }
         scanner.close();
@@ -198,5 +203,23 @@ public class Main {
         System.out.println(setPessoas.toString());
         System.out.println(setPessoas.inserir(new Pessoa(2, "TreinaWeb 01")));
         System.out.println(setPessoas.toString());
+    }
+
+
+    private static void fazerMapa() {
+        Mapa<String, Pessoa> mapaPessoas = new Mapa<String, Pessoa>();
+        System.out.println(mapaPessoas.toString());
+        mapaPessoas.adcionar("legal", new Pessoa(1, "TreinaWeb"));
+        System.out.println(mapaPessoas.toString());
+        System.out.println(mapaPessoas.contemChave("legal"));
+        System.out.println(mapaPessoas.contemChave("chata"));
+        mapaPessoas.adcionar("chata", new Pessoa(2, "João"));
+        System.out.println(mapaPessoas.contemChave("chata"));
+        mapaPessoas.adcionar("legal", new Pessoa(3, "TreinaWeb Editado"));
+        System.out.println(mapaPessoas.toString());
+        mapaPessoas.remover("chata");
+        System.out.println(mapaPessoas.toString());
+        System.out.println(mapaPessoas.recuperar("legal"));
+        mapaPessoas.remover("chave");
     }
 }
