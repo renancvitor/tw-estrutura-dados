@@ -1,8 +1,10 @@
 package estruturaDadosArvoreBinaria;
 
-public class NoArvore<T> {
+import estruturaDadosModelos.Pessoa;
 
-    private T valor;
+public abstract class NoArvore<T> {
+
+    protected T valor;
     private NoArvore<T> noEsquerdo;
     private NoArvore<T> noDireita;
 
@@ -10,6 +12,9 @@ public class NoArvore<T> {
         this.valor = valor;
         this.noEsquerdo = null;
         this.noDireita = null;
+    }
+
+    public NoArvore(Pessoa valor) {
     }
 
     public T getValor() {
@@ -32,7 +37,5 @@ public class NoArvore<T> {
         this.noDireita = noDireita;
     }
 
-    public int peso() {
-        return this.valor.hashCode();
-    }
+    public abstract int peso();
 }
