@@ -14,7 +14,10 @@ public abstract class NoArvore<T> {
         this.noDireita = null;
     }
 
-    public NoArvore(Pessoa valor) {
+    public NoArvore(T valor) {
+        this.valor = valor;
+        this.noEsquerdo = null;
+        this.noDireita = null;
     }
 
     public T getValor() {
@@ -38,4 +41,11 @@ public abstract class NoArvore<T> {
     }
 
     public abstract int peso();
+
+    @Override
+    public String toString() {
+        return (this.noEsquerdo == null ? "{[X]}" : "{[" + this.noEsquerdo.toString() + "]}")
+                + this.valor.toString() + "]}"
+                + (this.noDireita == null ? "{[X]}" : "{[" + this.noDireita.toString() + "]}");
+    }
 }
