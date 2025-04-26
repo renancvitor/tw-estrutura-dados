@@ -239,5 +239,10 @@ public class Main {
         System.out.println(arvorePessoas.toString());
         arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7")));
         System.out.println(arvorePessoas.toString());
+
+        arvorePessoas.inserir(new NoArvorePessoa(new Pessoa( 1, "TreinaWeb 1")));
+        System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println(" ~### EM ORDEM ###~ \n");
+        arvorePessoas.emOrdem();
     }
 }
