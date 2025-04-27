@@ -39,8 +39,42 @@ public class Arvore<T> {
         }
     }
 
+    public NoArvore<T> buscar(NoArvore<T> noBusca) {
+        return this.buscar(this.raiz, noBusca);
+    }
+
+    private NoArvore<T> buscar(NoArvore<T> ref, NoArvore<T> noBusca) {
+        if (ref.getValor().equals(noBusca.getValor())) {
+            return ref;
+        } else {
+            if (ref.peso() < noBusca.peso()) {
+                // Tem que ir para direita
+                if (ref.getNoDireita() == null) {
+                    throw new IllegalArgumentException("Elemento não encontrado na árvore.");
+                } else {
+                    System.out.println(" >>> Navegando à direita do nó. " + ref.getValor().toString());
+                    return buscar(ref.getNoDireita(), noBusca);
+                }
+            } else {
+                // Tem que ir para esquerda
+                if (ref.getNoEsquerdo() == null) {
+                    throw new IllegalArgumentException("Elemento não encontrado na árvore.");
+                } else {
+                    System.out.println(" >>> Navegando à esquerdaa do nó. " + ref.getValor().toString());
+                    return buscar(ref.getNoEsquerdo(), noBusca);
+                }
+            }
+        }
+    }
+
     public void emOrdem() {
+        // Esquerda => Rai\z => Direita
         this.emOrdem(this.raiz);
+    }
+
+    public void preOrdem() {
+        // Raiz => Esquerda => Direita
+        this.preOrdem(this.raiz);
     }
 
     private void emOrdem(NoArvore<T> ref) {
@@ -50,12 +84,28 @@ public class Arvore<T> {
 
             if (ref.getNoDireita() != null) {
                 emOrdem(ref.getNoDireita());
-            }
+            }    
         } else {
             System.out.println(ref.getValor().toString());
 
             if (ref.getNoDireita() != null) {
                 emOrdem(ref.getNoDireita());
+            }
+        }
+    }
+
+    private void preOrdem(NoArvore<T> ref) {
+        System.out.println(ref.getValor().toString());
+
+        if (ref.getNoEsquerdo() != null) {
+            preOrdem(ref.getNoEsquerdo());
+
+            if (ref.getNoDireita() != null) {
+                preOrdem(ref.getNoDireita());
+            } else {
+                if (ref.getNoDireita() != null) {
+                    preOrdem(ref.getNoDireita());
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ package tw.estruturaDados;
 import ListasLigadas.ListaDuplamenteLigada;
 import ListasLigadas.ListaLigada;
 import estruturaDadosArvoreBinaria.Arvore;
+import estruturaDadosArvoreBinaria.NoArvore;
 import estruturaDadosArvoreBinaria.NoArvorePessoa;
 import estruturaDadosFilas.Fila;
 import estruturaDadosMaps.Mapa;
@@ -239,10 +240,18 @@ public class Main {
         System.out.println(arvorePessoas.toString());
         arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7")));
         System.out.println(arvorePessoas.toString());
+        System.out.println("Busca...");
+        NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(6, "TreinaWeb 6"));
+        System.out.println(arvorePessoas.buscar(noPessoa6));
 
         arvorePessoas.inserir(new NoArvorePessoa(new Pessoa( 1, "TreinaWeb 1")));
         System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         System.out.println(" ~### EM ORDEM ###~ \n");
         arvorePessoas.emOrdem();
+
+        arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(8, "TreinaWeb 8")));
+        System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println(" ~### PRE ORDEM ###~ \n");
+        arvorePessoas.preOrdem();
     }
 }
