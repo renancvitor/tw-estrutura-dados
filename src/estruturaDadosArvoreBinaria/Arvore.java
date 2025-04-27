@@ -107,10 +107,10 @@ public class Arvore<T> {
 
             if (ref.getNoDireita() != null) {
                 preOrdem(ref.getNoDireita());
-            } else {
-                if (ref.getNoDireita() != null) {
-                    preOrdem(ref.getNoDireita());
-                }
+            }
+        } else {
+            if (ref.getNoDireita() != null) {
+                preOrdem(ref.getNoDireita());
             }
         }
     }
