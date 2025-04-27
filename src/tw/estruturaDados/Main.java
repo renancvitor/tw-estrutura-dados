@@ -253,5 +253,9 @@ public class Main {
         System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         System.out.println(" ~### PRE ORDEM ###~ \n");
         arvorePessoas.preOrdem();
+
+        System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println(" ~### POS ORDEM ###~ \n");
+        arvorePessoas.posOrdem();
     }
 }
