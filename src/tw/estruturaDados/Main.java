@@ -257,5 +257,9 @@ public class Main {
         System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         System.out.println(" ~### POS ORDEM ###~ \n");
         arvorePessoas.posOrdem();
+
+        System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println(" ~### ALTURA ###~ \n");
+        System.out.println(arvorePessoas.altura());
     }
 }
