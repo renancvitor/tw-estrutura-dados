@@ -1,7 +1,7 @@
 package desafioCodigoArvoreBinaria;
 
-import estruturaDadosArvoreBinaria.Arvore;
-import estruturaDadosArvoreBinaria.NoArvore;
+import desafioCodigoArvoreBinaria.Arvore;
+import desafioCodigoArvoreBinaria.NoArvore;
 
 import java.io.*;
 import java.util.*;
@@ -11,7 +11,7 @@ public class Programa {
 
     public static void main(String args[]) {
 
-        if(Arvore.class.getSuperclass() != null && !Arvore.class.getSuperclass().getName().contains("java.lang.Object"))
+        if (Arvore.class.getSuperclass() != null && !Arvore.class.getSuperclass().getName().contains("java.lang.Object"))
             System.out.println("A classe Arvore não pode implementar nenhuma superclasse");
 
         Field[] allFields = Arvore.class.getDeclaredFields();
@@ -34,22 +34,23 @@ public class Programa {
         arvore.emOrdem();
     }
 
-    //Complete o código teste método
-    public static Arvore processaArvore()
-    {
-        Arvore arvore = new Arvore();
+    public static Arvore processaArvore() {
+        Arvore<Integer> arvore = new Arvore<>();
 
         Scanner in = new Scanner(System.in);
 
-        while(in.hasNext())
-        {
+        while(in.hasNext()) {
             int valor = in.nextInt();
-            //....
+
+            if (valor == -1) {
+                break;
+            }
+
+            NoArvore<Integer> no = new NoArvore<>(valor);
+            arvore.inserir(no);
         }
 
         return arvore;
     }
 }
-
-//Defina as suas classes neste ponto
 
