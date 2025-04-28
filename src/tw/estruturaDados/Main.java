@@ -260,6 +260,6 @@ public class Main {
 
         System.out.println("\n*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
         System.out.println(" ~### ALTURA ###~ \n");
-        System.out.println(arvorePessoas.altura());
+        System.out.print(arvorePessoas.altura());
     }
 }
